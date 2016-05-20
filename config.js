@@ -9,6 +9,4 @@ var yelpConfig = {
   token_secret: 'DupDQ_5lWQ_gPTUytVG5Gucxus0',
 }
 
-module.exports = {
-  yelp: new Yelp(yelpConfig)
-};
+module.exports.yelp = new Yelp(yelpConfig);

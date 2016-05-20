@@ -1,8 +1,7 @@
 var _ = require('underscore');
 var yelp = require('../config.js').yelp;
 var errorTemplate = _.template('<p><%= text%></p>');
-var resolverTemplate = _.template(
-  '<img style="height:75px" src="<%= snippet_image_url %>">');
+var resolverTemplate = require('../utils').loadTemplate('resolver');
 
 
 // The API that returns the in-email representation.

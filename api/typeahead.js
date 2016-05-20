@@ -1,6 +1,6 @@
 var _ = require('underscore');
 var yelp = require('../config.js').yelp;
-var typeaheadTemplate = _.template('<img style="height:75px" src="<%= snippet_image_url %>">');
+var typeaheadTemplate = require('../utils').loadTemplate('typeahead');
 
 module.exports = function(req, res) {
   var query = req.query.text.split('in');
