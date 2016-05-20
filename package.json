@@ -1,0 +1,27 @@
+{
+  "name": "mixmax-yelp",
+  "version": "0.0.1",
+  "description": "Yelp for Mixmax",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:Xuefeng-Zhu/mixmax-yelp.git"
+  },
+  "author": "Xuefeng Zhu",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.12.2",
+    "cors": "^2.7.1",
+    "express": "^4.12.3",
+    "request": "^2.64.0",
+    "synchronize": "^0.9.14",
+    "underscore": "^1.8.3",
+    "yelp": "^1.0.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.9.2"
+  }
+}
