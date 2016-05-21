@@ -10,11 +10,11 @@ This is an open source Mixmax Slash Command to search information on Yelp. See <
 To simulate locally how Mixmax calls the typeahead URL (to return a JSON list of typeahead results), run:
 
 ```
-curl http://localhost:9145/typeahead?text=cats
+curl http://localhost:9145/typeahead?text=food%20in%20Chicago
 ```
 
 To simulate locally how Mixmax calls the resolver URL (to return HTML that goes into the email), run:
 
 ```
-curl http://localhost:9145/resolver?text=cats
+curl http://localhost:9145/resolver?text=saucy-porka-chicago
 ```
