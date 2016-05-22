@@ -18,3 +18,7 @@ To simulate locally how Mixmax calls the resolver URL (to return HTML that goes 
 ```
 curl https://localhost:9145/resolver?text=saucy-porka-chicago --insecure
 ```
+
+## In production with https proxy
+
+Run `PROD=true npm start`

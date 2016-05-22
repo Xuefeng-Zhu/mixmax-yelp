@@ -1,7 +1,5 @@
 var express = require('express');
 var cors = require('cors');
-var pem = require('pem');
-var https = require('https');
 
 // Since Mixmax calls this API directly from the client-side, it must be whitelisted.
 var corsOptions = {
@@ -9,13 +7,18 @@ var corsOptions = {
   credentials: true
 };
 
+var app = express();
 
-pem.createCertificate({days:1, selfSigned:true}, function(err, keys){
-  var app = express();
+app.get('/typeahead', cors(corsOptions), require('./api/typeahead'));
+app.get('/resolver', cors(corsOptions), require('./api/resolver'));
 
-  app.get('/typeahead', cors(corsOptions), require('./api/typeahead'));
-  app.get('/resolver', cors(corsOptions), require('./api/resolver'));
-
-  https.createServer({key: keys.serviceKey, cert: keys.certificate},
-    app).listen(process.env.PORT || 9145);
-});
+if (process.env.PROD) {
+  app.listen(process.env.PORT || 9145);
+} else {
+  var pem = require('pem');
+  var https = require('https');
+  pem.createCertificate({days:1, selfSigned:true}, function(err, keys){
+    https.createServer({key: keys.serviceKey, cert: keys.certificate},
+      app).listen(process.env.PORT || 9145);
+  });
+}
